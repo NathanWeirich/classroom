@@ -1,10 +1,11 @@
-import mongoose, { Schema, Document } from 'mongoose'
+import mongoose, { Schema, Document, Model } from 'mongoose'
 
 export interface ICard extends Document {
   title: string
-  description: string
+  year: number
   teacher: string
-  imageUrl: string
+  profileAvatar: string
+  banner: string
 }
 
 const CardSchema: Schema = new Schema({
@@ -12,19 +13,28 @@ const CardSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  description: {
-    type: String,
+  year: {
+    type: Number,
     required: true,
   },
   teacher: {
     type: String,
     required: true,
   },
-  imageUrl: {
+
+  profileAvatar: {
+    type: String,
+    required: true,
+  },
+
+  banner: {
     type: String,
     required: true,
     default: '/public/default-banner.jpg',
   },
 })
 
-export default mongoose.models.Card || mongoose.model<ICard>('Card', CardSchema)
+const Card: Model<ICard> =
+  mongoose.models.Card || mongoose.model<ICard>('Card', CardSchema)
+
+export default Card
