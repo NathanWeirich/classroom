@@ -1,35 +1,46 @@
 "use client"
 
 import React from 'react';
-import Styles from "./styles"
+import { IconButton } from '@mui/material';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import FolderIcon from '@mui/icons-material/Folder';
+import{CardContainer,BannerContainer,Title,Year,Teacher,Avatar,Footer,AvatarDefault, DefaultProfileLetter,ActivityContainer}from "./styles"
 
 interface ICardProps {
-  title: string
-  year: string
-  description: string
-  teacher: string
-  imageUrl: string
+  title: string;
+  year: number;
+  teacher: string;
+  profileAvatar: string;
+  banner: string;
 }
 
-const Card: React.FC<ICardProps> = ({ title,year, description,teacher,imageUrl }) => {
+const Card: React.FC<ICardProps> = ({ title, year, teacher, profileAvatar, banner }) => {
+  console.log("Props do Card:", { title, year, teacher, profileAvatar, banner });
+
   return (
-    <Styles.Card>
-      <Styles.Header>
-        <div>
-          <Styles.Title>{title}</Styles.Title>
-          <Styles.Year>{year}</Styles.Year>
-        </div>
-        <Styles.Avatar>M</Styles.Avatar>
-      </Styles.Header>
-      <Styles.Content>
-        <p>{teacher}</p>
-        <p>{description}</p>
-      </Styles.Content>
-      <Styles.Footer>
-        <Styles.FooterIcon>📸</Styles.FooterIcon>
-        <Styles.FooterIcon>📂</Styles.FooterIcon>
-      </Styles.Footer>
-    </Styles.Card>
+    <CardContainer>
+      <BannerContainer>
+        <Title>{title}</Title>
+        <Year>{year}</Year>
+        <Teacher>{teacher}</Teacher>
+        {profileAvatar
+         ? <Avatar src={profileAvatar} alt={`${teacher} avatar`} />
+         : <AvatarDefault>
+            <DefaultProfileLetter>{teacher.charAt(0)}</DefaultProfileLetter>
+         </AvatarDefault>
+          }
+        
+      </BannerContainer>
+      <ActivityContainer/>
+      <Footer>
+        <IconButton aria-label="photo">
+          <PhotoCameraIcon />
+        </IconButton>
+        <IconButton aria-label="folder">
+          <FolderIcon />
+        </IconButton>
+      </Footer>
+    </CardContainer>
   );
 };
 

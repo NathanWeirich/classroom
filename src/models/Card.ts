@@ -24,13 +24,13 @@ const CardSchema: Schema = new Schema({
 
   profileAvatar: {
     type: String,
-    required: true,
   },
 
   banner: {
     type: String,
     required: true,
-    default: '/public/default-banner.jpg',
+    default:
+      'https://media.discordapp.net/attachments/215613850689601537/1286078697266221106/default-banner.jpg?ex=66ec999f&is=66eb481f&hm=9150dca1b0854db412496e1055fd3d84135f920a0b7a858f911ecf6782cb155c&=&format=webp&width=1440&height=360',
   },
 })
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Card = styled.div`
+export const CardContainer = styled.div`
   width: 300px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -8,60 +8,75 @@ const Card = styled.div`
   font-family: Arial, sans-serif;
 `
 
-const Header = styled.div`
-  background-color: #62727b; // Change this color to match your header background
-  color: white;
-  padding: 16px;
+export const BannerContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
+  height: 100px;
+  width: 300px;
+  background-color: #0000ff;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 16px;
+  background-image: url('https://gstatic.com/classroom/themes/img_learnlanguage.jpg');
+  background-size: cover;
 `
 
-const Title = styled.h2`
-  font-size: 18px;
-  margin: 0;
-`
-
-const Year = styled.p`
-  margin: 0;
-  font-size: 14px;
-`
-
-const Avatar = styled.div`
-  background-color: #4caf50; // Background color for the avatar circle
+export const Title = styled.p`
   color: white;
+  font-size: 1rem;
+  font-weight: 600;
+`
+
+export const Year = styled.p`
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+`
+
+export const Teacher = styled.p`
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+`
+
+export const Avatar = styled.img`
+  position: absolute;
+  bottom: -16px;
+  right: 16px;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  margin-right: 16px;
+  width: 48px;
+  height: 48px;
+  border: 2px solid white;
 `
 
-const Content = styled.div`
-  padding: 16px;
-`
-
-const Footer = styled.div`
+export const Footer = styled.div`
   padding: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   border-top: 1px solid #f0f0f0;
+  height: 60px;
+  width: 300px;
 `
-
-const FooterIcon = styled.div`
-  font-size: 20px;
-  color: #888;
+export const AvatarDefault = styled.div`
+  background-color: black;
+  position: absolute;
+  bottom: -16px;
+  right: 16px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border: 2px solid white;
 `
-export default {
-  Card,
-  Header,
-  Title,
-  Year,
-  Avatar,
-  Content,
-  Footer,
-  FooterIcon,
-}
+export const DefaultProfileLetter = styled.p`
+  text-align: center;
+  vertical-align: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: 500;
+`
+export const ActivityContainer = styled.div`
+  padding: 16px;
+  display: flex;
+  height: 140px;
+  width: 300px;
+`
