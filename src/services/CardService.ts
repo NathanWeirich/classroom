@@ -23,4 +23,29 @@ export class CardService {
       banner
     )
   }
+
+  async getAllCards(): Promise<ICard[]> {
+    return await this.cardRepository.findAllCards()
+  }
+
+  async updateCard(
+    id: string,
+    updateData: Partial<ICard>
+  ): Promise<ICard | null> {
+    const card = await this.cardRepository.findCardById(id)
+    if (!card) {
+      throw new Error('Card not found')
+    }
+
+    return await this.cardRepository.updateCard(id, updateData)
+  }
+
+  async deleteCard(id: string): Promise<ICard | null> {
+    const card = await this.cardRepository.findCardById(id)
+    if (!card) {
+      throw new Error('Card not found')
+    }
+
+    return await this.cardRepository.deleteCard(id)
+  }
 }

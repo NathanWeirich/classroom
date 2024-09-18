@@ -21,3 +21,14 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error }, { status: 400 })
   }
 }
+
+export async function GET() {
+  await connectDB()
+
+  try {
+    const cards = await cardService.getAllCards()
+    return NextResponse.json(cards, { status: 200 })
+  } catch (error) {
+    return NextResponse.json(error, { status: 500 })
+  }
+}
