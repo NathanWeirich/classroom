@@ -8,7 +8,7 @@ export const CardContainer = styled.div`
   font-family: Arial, sans-serif;
 `
 
-export const BannerContainer = styled.div`
+export const BannerContainer = styled.div<{ banner: string }>`
   display: flex;
   position: relative;
   height: 100px;
@@ -17,7 +17,7 @@ export const BannerContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 16px;
-  background-image: url('https://gstatic.com/classroom/themes/img_learnlanguage.jpg');
+  background-image: url(${(props) => props.banner});
   background-size: cover;
 `
 
@@ -41,11 +41,11 @@ export const Teacher = styled.p`
 
 export const Avatar = styled.img`
   position: absolute;
-  bottom: -16px;
+  bottom: -37px;
   right: 16px;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 75px;
+  height: 75px;
   border: 2px solid white;
 `
 
@@ -58,13 +58,13 @@ export const Footer = styled.div`
   width: 300px;
 `
 export const AvatarDefault = styled.div`
-  background-color: black;
+  background-color: #ff0000;
   position: absolute;
-  bottom: -16px;
+  bottom: -37px;
   right: 16px;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 75px;
+  height: 75px;
   border: 2px solid white;
 `
 export const DefaultProfileLetter = styled.p`

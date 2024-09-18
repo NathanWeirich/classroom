@@ -28,10 +28,24 @@ const CardSchema: Schema = new Schema({
 
   banner: {
     type: String,
-    required: true,
-    default:
-      'https://media.discordapp.net/attachments/215613850689601537/1286078697266221106/default-banner.jpg?ex=66ec999f&is=66eb481f&hm=9150dca1b0854db412496e1055fd3d84135f920a0b7a858f911ecf6782cb155c&=&format=webp&width=1440&height=360',
   },
+})
+
+const bannerUrls = [
+  'https://gstatic.com/classroom/themes/img_learnlanguage.jpg',
+  'https://www.gstatic.com/classroom/themes/img_read.jpg',
+  'https://gstatic.com/classroom/themes/img_bookclub.jpg',
+  'https://gstatic.com/classroom/themes/img_backtoschool.jpg',
+  'https://gstatic.com/classroom/themes/img_reachout.jpg',
+]
+
+CardSchema.pre<ICard>('save', function (next) {
+  if (!this.banner || this.banner === '') {
+    const randomBanner =
+      bannerUrls[Math.floor(Math.random() * bannerUrls.length)]
+    this.banner = randomBanner
+  }
+  next()
 })
 
 const Card: Model<ICard> =

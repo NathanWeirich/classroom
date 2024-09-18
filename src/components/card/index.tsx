@@ -19,7 +19,7 @@ const Card: React.FC<ICardProps> = ({ title, year, teacher, profileAvatar, banne
 
   return (
     <CardContainer>
-      <BannerContainer>
+      <BannerContainer banner={banner}>
         <Title>{title}</Title>
         <Year>{year}</Year>
         <Teacher>{teacher}</Teacher>
