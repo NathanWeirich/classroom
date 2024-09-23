@@ -35,8 +35,6 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
         if (response.ok) {
           console.log('Dados enviados com sucesso!');
           handleClose(); // Fecha o modal após o sucesso
-        } else {
-          console.error('Erro ao enviar os dados:', response.statusText);
         }
       } catch (error) {
         console.error('Erro na requisição:', error);

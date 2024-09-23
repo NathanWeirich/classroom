@@ -27,7 +27,6 @@ const Home: React.FC = () => {
       try {
         const response = await fetch('/api/cards'); // Faz a requisição à API para buscar os cards
         const data = await response.json();
-        console.log(data);
         setCards(data); // Atualiza o estado com os dados dos cards
         setLoading(false); // Define o carregamento como falso após a requisição
       } catch (error) {
@@ -49,8 +48,6 @@ const Home: React.FC = () => {
       if (response.ok) {
         // Se a requisição foi bem-sucedida, atualize o estado removendo o card
         setCards((prevCards) => prevCards.filter((card) => card._id !== id));
-      } else {
-        console.error('Erro ao deletar o card:', response.statusText);
       }
     } catch (error) {
       console.error('Erro ao deletar o card:', error);
