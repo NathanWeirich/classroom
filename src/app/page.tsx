@@ -25,6 +25,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
+        
         const response = await fetch('/api/cards'); // Faz a requisição à API para buscar os cards
         const data = await response.json();
         setCards(data); // Atualiza o estado com os dados dos cards
@@ -35,7 +36,11 @@ const Home: React.FC = () => {
       }
     };
 
-    fetchCards();
+    setInterval(()=>{
+      fetchCards();
+    },500)
+    
+    
   }, []);
 
   // Função para deletar um card pelo ID
