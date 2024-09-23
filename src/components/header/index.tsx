@@ -15,7 +15,11 @@ import {
   UserProfile 
 } from './styles';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onAddClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({onAddClick}) => {
   return (
     <HeaderContainer>
       <LogoContainer>
@@ -29,7 +33,7 @@ const Header: React.FC = () => {
       </LogoContainer>
 
       <IconContainer>
-        <IconButton aria-label="add">
+        <IconButton aria-label="add" onClick={onAddClick}>
           <AddIcon />
         </IconButton>
         <IconButton aria-label="apps">

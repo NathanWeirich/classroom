@@ -6,6 +6,9 @@ export const CardContainer = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   font-family: Arial, sans-serif;
+  min-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 export const BannerContainer = styled.div<{ banner: string }>`
@@ -23,20 +26,20 @@ export const BannerContainer = styled.div<{ banner: string }>`
 
 export const Title = styled.p`
   color: white;
-  font-size: 1rem;
+  font-size: 22px;
   font-weight: 600;
 `
 
 export const Year = styled.p`
   color: white;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 500;
 `
 
 export const Teacher = styled.p`
   color: white;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 500;
 `
 
 export const Avatar = styled.img`
@@ -71,7 +74,7 @@ export const DefaultProfileLetter = styled.p`
   text-align: center;
   vertical-align: center;
   color: white;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 500;
 `
 export const ActivityContainer = styled.div`

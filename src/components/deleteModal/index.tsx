@@ -25,7 +25,7 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
   
       try {
         const response = await fetch('/api/cards', {
-          method: 'POST',
+          method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -33,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
         });
   
         if (response.ok) {
-          console.log('Dados enviados com sucesso!');
+          console.log('Dados editados com sucesso!');
           handleClose(); // Fecha o modal após o sucesso
         } else {
           console.error('Erro ao enviar os dados:', response.statusText);
@@ -46,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
     return (
       <MuiModal open={open} onClose={handleClose}>
         <ModalContainer>
-          <Title variant="h6">Criar Nova Matéria</Title>
+          <Title variant="h6">Editar Matéria</Title>
           <Typography variant="body2" gutterBottom>
             Você fez login como <strong>VASCO</strong>
           </Typography>
@@ -92,7 +92,7 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
             style={{ marginBottom: 5 }}
             onClick={handleSubmit} // Chama a função para enviar os dados
           >
-            Criar
+            Editar
           </StyledButton>
           <StyledButton variant="outlined" color="secondary" onClick={handleClose}>
             Cancelar
