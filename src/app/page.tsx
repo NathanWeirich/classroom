@@ -17,19 +17,19 @@ interface CardData {
 const Home: React.FC = () => {
   const [cards, setCards] = useState<CardData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [open, setOpen] = useState<boolean>(false); // Controle de visibilidade do modal
+  const [open, setOpen] = useState<boolean>(false);
 
-  const handleOpen = () => setOpen(true); // Função para abrir o modal
-  const handleClose = () => setOpen(false); // Função para fechar o modal
+  const handleOpen = () => setOpen(true); 
+  const handleClose = () => setOpen(false); 
 
   useEffect(() => {
     const fetchCards = async () => {
       try {
         
-        const response = await fetch('/api/cards'); // Faz a requisição à API para buscar os cards
+        const response = await fetch('/api/cards'); 
         const data = await response.json();
-        setCards(data); // Atualiza o estado com os dados dos cards
-        setLoading(false); // Define o carregamento como falso após a requisição
+        setCards(data); 
+        setLoading(false);
       } catch (error) {
         console.error('Erro ao buscar os cards:', error);
         setLoading(false);
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
     
   }, []);
 
-  // Função para deletar um card pelo ID
+  
   const handleDelete = async (id: string) => {
     try {
       const response = await fetch(`/api/cards/${id}`, {
@@ -51,7 +51,6 @@ const Home: React.FC = () => {
       });
 
       if (response.ok) {
-        // Se a requisição foi bem-sucedida, atualize o estado removendo o card
         setCards((prevCards) => prevCards.filter((card) => card._id !== id));
       }
     } catch (error) {
@@ -60,7 +59,7 @@ const Home: React.FC = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>; // Exibe um indicador de carregamento enquanto os dados são buscados
+    return <p>Loading...</p>;
   }
 
   return (

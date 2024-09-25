@@ -10,16 +10,14 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
-    // Estados para armazenar os valores dos campos
     const [title, setTitle] = useState('');
     const [year, setYear] = useState<number | string>('');
     const [teacher, setTeacher] = useState('');
   
-    // Função para enviar os dados ao backend
     const handleSubmit = async () => {
       const payload = {
         title: title,
-        year: Number(year), // Certifique-se de que o ano é um número
+        year: Number(year), 
         teacher: teacher,
       };
   
@@ -34,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
   
         if (response.ok) {
           console.log('Dados enviados com sucesso!');
-          handleClose(); // Fecha o modal após o sucesso
+          handleClose(); 
         }
       } catch (error) {
         console.error('Erro na requisição:', error);
@@ -49,7 +47,7 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
             Você fez login como <strong>VASCO</strong>
           </Typography>
   
-          {/* Campo para o título da matéria */}
+          
           <TextField
             fullWidth
             label="Título da Matéria"
@@ -57,10 +55,10 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
             margin="normal"
             placeholder="Digite o Título da Matéria"
             value={title}
-            onChange={(e) => setTitle(e.target.value)} // Atualiza o estado com o título
+            onChange={(e) => setTitle(e.target.value)} 
           />
   
-          {/* Campo para o ano da matéria */}
+          
           <TextField
             fullWidth
             label="Ano da Matéria"
@@ -69,10 +67,10 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
             type="number"
             placeholder="Digite o Ano da Matéria"
             value={year}
-            onChange={(e) => setYear(e.target.value)} // Atualiza o estado com o ano
+            onChange={(e) => setYear(e.target.value)} 
           />
   
-          {/* Campo para o nome do professor */}
+          
           <TextField
             fullWidth
             label="Nome do Professor"
@@ -80,15 +78,14 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
             margin="normal"
             placeholder="Digite o Nome do Professor"
             value={teacher}
-            onChange={(e) => setTeacher(e.target.value)} // Atualiza o estado com o nome do professor
+            onChange={(e) => setTeacher(e.target.value)} 
           />
   
-          {/* Botões para Criar e Cancelar */}
+          
           <StyledButton
             variant="contained"
             color="primary"
-            style={{ marginBottom: 5 }}
-            onClick={handleSubmit} // Chama a função para enviar os dados
+            onClick={handleSubmit}
           >
             Criar
           </StyledButton>

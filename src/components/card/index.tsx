@@ -48,8 +48,8 @@ const Card: React.FC<ICardProps> = ({
   };
 
   const handleDelete = () => {
-    onDelete(id); // Passa o ID para a função de deletar
-    handleMenuClose(); // Fecha o menu após clicar em "Deletar"
+    onDelete(id); 
+    handleMenuClose();
   };
 
   return (
@@ -74,7 +74,7 @@ const Card: React.FC<ICardProps> = ({
         >
           <MoreVertIcon />
         </IconButton>
-        {/* Menu com as opções Editar e Deletar */}
+        
         <Menu
           id="card-menu"
           anchorEl={anchorEl}
@@ -83,12 +83,12 @@ const Card: React.FC<ICardProps> = ({
           onClose={handleMenuClose}
         >
           <MenuItem onClick={handleMenuClose}>Editar</MenuItem>
-          <MenuItem onClick={handleDelete}>Deletar</MenuItem> {/* Chama handleDelete */}
+          <MenuItem onClick={handleDelete}>Deletar</MenuItem> 
         </Menu>
       </BannerContainer>
       <ActivityContainer />
       <Footer>
-        <IconButton aria-label="photo">
+        <IconButton aria-label="profile">
           <AssignmentIndOutlinedIcon style={{ color: 'black' }} />
         </IconButton>
         <IconButton aria-label="folder">
