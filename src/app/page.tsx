@@ -25,7 +25,6 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        
         const response = await fetch('/api/cards'); 
         const data = await response.json();
         setCards(data); 

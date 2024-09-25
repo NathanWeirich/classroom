@@ -86,6 +86,7 @@ const Modal: React.FC<ModalProps> = ({ open, handleClose }) => {
             variant="contained"
             color="primary"
             onClick={handleSubmit}
+            style={{marginBottom: 10}}
           >
             Criar
           </StyledButton>

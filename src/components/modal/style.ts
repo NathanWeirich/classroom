@@ -21,6 +21,5 @@ export const Title = styled(Typography)`
 
 export const StyledButton = styled(Button)`
   margin-top: 16px;
-  margin-bottom: 5px;
   width: 100%;
 `
